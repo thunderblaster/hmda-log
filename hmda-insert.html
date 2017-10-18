@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/hmda.css">
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="js/hmda.js"></script>
+		<script src="js/ad.js"></script>
+	</head>
+	<body>
+		<br><br>
+
+		<div class="container">
+			<h1>HMDA Log</h1>
+			<h3>Add Record To Log</h3>
+			
+			<form action="php/hmdaLogInsert.php" method="post" id="hmda-form">
+				<div class="row">
+					<div class="checkbox">
+						<label><input type="checkbox" value="1" name="incomplete" id="incomplete">Incomplete</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group has-feedback">
+							<label for="app_fname">Applicant First Name (blank for businesses):</label>
+							<input type="text" class="form-control string-val" name="app_fname" id="app_fname">
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group has-feedback">
+							<label for="app_lname">Applicant Last Name/Business Name:</label>
+							<input type="text" class="form-control string-val" name="app_lname" id="app_lname" required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="app_sex">Applicant Sex:</label>
+							<select class="form-control no-val" name="app_sex" id="app_sex">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Male</option>
+								<option value="2">2 - Female</option>
+								<option value="3">3 - Info not provided for not-in-person app</option>
+								<option value="4">4 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="app_ethnicity">Applicant Ethnicity:</label>
+							<select class="form-control no-val" name="app_ethnicity" id="app_ethnicity">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Hispanic/Latino</option>
+								<option value="2">2 - Not Hispanic/Latino</option>
+								<option value="3">3 - Info not provided for not-in-person app</option>
+								<option value="4">4 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="app_race1">Applicant Race 1:</label>
+							<select class="form-control no-val" name="app_race1" id="app_race1">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7">7 - N/A</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="app_race2">Applicant Race 2:</label>
+							<select class="form-control no-val" name="app_race2" id="app_race2">
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="app_race3">Applicant Race 3:</label>
+							<select class="form-control no-val" name="app_race3" id="app_race3">
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="app_race4">Applicant Race 4:</label>
+							<select class="form-control no-val" name="app_race4" id="app_race4">
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="app_race5">Applicant Race 5:</label>
+							<select class="form-control no-val" name="app_race5" id="app_race5">
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="checkbox text-center">
+							<label>
+								<input type="checkbox" value="" id="coapp-check">
+								Co-Applicant
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group has-feedback">
+							<label for="coapp_fname">Co-Applicant First Name:</label>
+							<input type="text" class="form-control coapp-input string-val" name="coapp_fname" id="coapp_fname" disabled>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="form-group has-feedback">
+							<label for="coapp_lname">Co-Applicant Last Name:</label>
+							<input type="text" class="form-control coapp-input string-val" name="coapp_lname" id="coapp_lname" disabled>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="coapp_sex">Co-Applicant Sex:</label>
+							<select class="form-control coapp-input no-val" name="coapp_sex" id="coapp_sex" disabled>
+								<option value="1">1 - Male</option>
+								<option value="2">2 - Female</option>
+								<option value="3">3 - Info not provided for not-in-person app</option>
+								<option value="4" selected>4 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="coapp_ethnicity">Co-Applicant Ethnicity:</label>
+							<select class="form-control coapp-input no-val" name="coapp_ethnicity" id="coapp_ethnicity" disabled>
+								<option value="1">1 - Hispanic/Latino</option>
+								<option value="2">2 - Not Hispanic/Latino</option>
+								<option value="3">3 - Info not provided for not-in-person app</option>
+								<option value="4" selected>4 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="coapp_race1">Co-Applicant Race 1:</label>
+							<select class="form-control coapp-input no-val" name="coapp_race1" id="coapp_race1" disabled>
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="coapp_race2">Co-Applicant Race 2:</label>
+							<select class="form-control coapp-input no-val" name="coapp_race2" id="coapp_race2" disabled>
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="coapp_race3">Co-Applicant Race 3:</label>
+							<select class="form-control coapp-input no-val" name="coapp_race3" id="coapp_race3" disabled>
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="coapp_race4">Co-Applicant Race 4:</label>
+							<select class="form-control coapp-input no-val" name="coapp_race4" id="coapp_race4" disabled>
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="coapp_race5">Co-Applicant Race 5:</label>
+							<select class="form-control coapp-input no-val" name="coapp_race5" id="coapp_race5" disabled>
+								<option value="1">1 - Native American/Native Alaskan</option>
+								<option value="2">2 - Asian</option>
+								<option value="3">3 - Black/African-American</option>
+								<option value="4">4 - Native Hawaiian/Pacific Islander</option>
+								<option value="5">5 - White</option>
+								<option value="6">6 - Info not provided for not-in-person app</option>
+								<option value="7" selected>7 - N/A</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="loan_number">Loan/Application Number:</label>
+							<input type="text" class="form-control intNotNull-val" name="loan_number" id="loan_number" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="app_date">Date Application Received:</label>
+							<input type="text" class="form-control dateWithNull-val" name="app_date" id="app_date" placeholder="YYYYMMDD or NA" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="loan_type">Loan Type:</label>
+							<select class="form-control no-val" name="loan_type" id="loan_type">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Conventional</option>
+								<option value="2">2 - FHA-insured</option>
+								<option value="3">3 - VA-guaranteed</option>
+								<option value="4">4 - FSA/RHS-guaranteed</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="prop_type">Property Type:</label>
+							<select class="form-control no-val" name="prop_type" id="prop_type">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - 1-4 family</option>
+								<option value="2">2 - Manufactured</option>
+								<option value="3">3 - Multifamily</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="purpose">Loan Purpose:</label>
+							<select class="form-control no-val" name="purpose" id="purpose">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Purchase</option>
+								<option value="2">2 - Improvement</option>
+								<option value="3">3 - Refi</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="occupancy">Owner Occupancy:</label>
+							<select class="form-control no-val" name="occupancy" id="occupancy">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Owner-occupied</option>
+								<option value="2">2 - Not owner-occupied</option>
+								<option value="3">3 - N/A</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="amount">Loan Amount:</label>
+							<div class="input-group">
+								<span class="input-group-addon">$</span>
+								<input type="number" class="form-control intNotNull-val" name="amount" id="amount" placeholder="Numeric (in thousands)" required>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="preapproval">Preapprovals:</label>
+							<select class="form-control no-val" name="preapproval" id="preapproval">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Requested</option>
+								<option value="2">2 - Not requested</option>
+								<option value="3">3 - N/A</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="action">Type of Action Taken:</label>
+							<select class="form-control no-val" name="action" id="action">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Loan originated</option>
+								<option value="2">2 - Approved, not accepted</option>
+								<option value="3">3 - Denied by FI</option>
+								<option value="4">4 - Withdrawn by applicant</option>
+								<option value="5">5 - Closed for incompleteness</option>
+								<option value="6">6 - Loan purchased by FI</option>
+								<option value="7">7 - Preapproval denied</option>
+								<option value="8">8 - Preapproval approved, not accepted</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="action_date">Date of Action:</label>
+							<div class="input-group">
+								<span class="input-group-addon">&#128197;</span>
+								<input type="number" class="form-control dateNotNull-val" name="action_date" id="action_date" placeholder="YYYYMMDD" required>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="msa">MSA Code:</label>
+							<input type="text" class="form-control intWithNull-val" name="msa" id="msa" placeholder="Enter NA if not applicable" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="state">State Code:</label>
+							<input type="text" class="form-control intWithNull-val" name="state" id="state" placeholder="Enter NA if not applicable" required>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="county">County Code:</label>
+							<input type="text" class="form-control intWithNull-val" name="county" id="county" placeholder="Enter NA if not applicable" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="census">Census Tract:</label>
+							<input type="text" class="form-control string-val" name="census" id="census" placeholder="Include decimal point. Enter NA if not applicable" required>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="income">Applicant Income:</label>
+							<div class="input-group">
+								<span class="input-group-addon">$</span>
+								<input type="number" class="form-control intNotNull-val" name="income" id="income" placeholder="Numeric (in thousands)" required>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="purchaser_type">Type of Purchaser:</label>
+							<select class="form-control no-val" name="purchaser_type" id="purchaser_type">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="0">0 - Loan not originated or sold in calendar year</option>
+								<option value="1">1 - Fannie Mae</option>
+								<option value="2">2 - Ginnie Mae</option>
+								<option value="3">3 - Freddie Mac</option>
+								<option value="4">4 - Farmer Mac</option>
+								<option value="5">5 - Private securitization</option>
+								<option value="6">6 - Commercial or savings bank</option>
+								<option value="7">7 - Life insurance co, CU, mortgage bank or finance co</option>
+								<option value="8">8 - Affliate institution</option>
+								<option value="9">9 - Other type</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row" id="denial-row">
+					<div class="col-md-3" id="denial-col">
+						<div class="checkbox" id="denial-div">
+							<label>
+								<input type="checkbox" value="" id="denial-check">
+								Denied
+							</label>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="denial_reason1">Denial Reason 1:</label>
+							<select class="form-control denial-input no-val" name="denial_reason1" id="denial_reason1" disabled>
+								<option value="NA">N/A</option>
+								<option value="1">1 - Debt-to-income ratio</option>
+								<option value="2">2 - Employment history</option>
+								<option value="3">3 - Credit history</option>
+								<option value="4">4 - Collateral</option>
+								<option value="5">5 - Insufficient cash</option>
+								<option value="6">6 - Unverifiable information</option>
+								<option value="7">7 - Credit application incomplete</option>
+								<option value="8">8 - Mortgage insurance denied</option>
+								<option value="9">9 - Other</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="denial_reason2">Denial Reason 2:</label>
+							<select class="form-control denial-input no-val" name="denial_reason2" id="denial_reason2" disabled>
+								<option value="NA">N/A</option>
+								<option value="1">1 - Debt-to-income ratio</option>
+								<option value="2">2 - Employment history</option>
+								<option value="3">3 - Credit history</option>
+								<option value="4">4 - Collateral</option>
+								<option value="5">5 - Insufficient cash</option>
+								<option value="6">6 - Unverifiable information</option>
+								<option value="7">7 - Credit application incomplete</option>
+								<option value="8">8 - Mortgage insurance denied</option>
+								<option value="9">9 - Other</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="form-group has-feedback">
+							<label for="denial_reason3">Denial Reason 3:</label>
+							<select class="form-control denial-input no-val" name="denial_reason3" id="denial_reason3" disabled>
+								<option value="NA">N/A</option>
+								<option value="1">1 - Debt-to-income ratio</option>
+								<option value="2">2 - Employment history</option>
+								<option value="3">3 - Credit history</option>
+								<option value="4">4 - Collateral</option>
+								<option value="5">5 - Insufficient cash</option>
+								<option value="6">6 - Unverifiable information</option>
+								<option value="7">7 - Credit application incomplete</option>
+								<option value="8">8 - Mortgage insurance denied</option>
+								<option value="9">9 - Other</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="spread">Rate Spread:</label>
+							<div class="input-group">
+								<input type="text" class="form-control string-val" name="spread" id="spread" placeholder="Include decimal. NA if not applicable" required>
+								<span class="input-group-addon">%</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="hoepa">HOEPA Status:</label>
+							<select class="form-control no-val" name="hoepa" id="hoepa">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - HOEPA loan</option>
+								<option value="2">2 - Not HOEPA loan</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group has-feedback">
+							<label for="lien">Lien Status:</label>
+							<select class="form-control no-val" name="lien" id="lien">
+								<option value="null" disabled selected>--- Choose an option ---</option>
+								<option value="1">1 - Secured by first lien</option>
+								<option value="2">2 - Secured by subordinate lien</option>
+								<option value="3">3 - Not secured by lien</option>
+								<option value="4">4 - Not applicable (purchased loans)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<button type="button" class="btn btn-primary" id="submit">Submit</button>
+					</div>
+				</div>
+				
+			</form>
+			<br><br><div align='center'><a href='/hmda.html'>Back</a></div><br><br><br>
+		</div>
+
+	</body>
+</html> 
